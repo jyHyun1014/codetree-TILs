@@ -14,16 +14,10 @@ for i in range(1, n):
 
 
 # DP
+# 탐색하는 위치의 위에 값과 좌측 값 중에 큰 값과
+# 해당 위치의 숫자 중에 최솟값을 구해줍니다.
 for i in range(1, n):
     for j in range(1, n):
-        temp = [(dp[i-1][j], 0), (dp[i][j-1], 1), (graph[i][j], 2)]
-        temp.sort()
-        # dp[i][j] = min(dp[i-1][j], dp[i][j-1], graph[i][j])
-        if temp[0][1] == 2:
-            dp[i][j] = graph[i][j]
-        elif temp[0][1] == 0:
-            dp[i][j] = min(dp[i][j-1], graph[i][j])
-        else:
-            dp[i][j] = min(dp[i-1][j], graph[i][j])
+        dp[i][j] = min(max(dp[i-1][j], dp[i][j-1]), graph[i][j])
 
 print(dp[n-1][n-1])
