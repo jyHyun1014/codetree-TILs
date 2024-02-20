@@ -8,6 +8,6 @@ elif c == 'B':
 elif c == 'C':
     print('Usually')
 elif c == 'D':
-    print('Effor')
+    print('Effort')
 else:
     print('Failure')
