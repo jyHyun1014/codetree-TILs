@@ -5,17 +5,22 @@ c = list(map(int, input().split()))
 d = list(map(int, input().split()))
 
 answer = 0
-dic_d = dict()
+dic = dict()
 
-for elem in d:
-    if elem in dic_d:
-        dic_d[elem] += 1
-    else:
-        dic_d[elem] = 1
-
+# A 수열에서 숫자 하나, B 수열에서 숫자 하나를 골랐을 때
+# 나올 수 있는 두 숫자의 합들을 hashmap에 저장
 for i in a:
     for j in b:
-        for k in c:
-            if -(i + j + k) in dic_d:
-                answer += dic_d[-(i + j + k)]
+        sum_val = i + j
+        if sum_val in dic:
+            dic[sum_val] += 1
+        else:
+            dic[sum_val] = 1
+
+for i in c:
+    for j in d:
+        diff = -(i + j)
+        if diff in dic:
+            answer += dic[diff]
+        
 print(answer)
