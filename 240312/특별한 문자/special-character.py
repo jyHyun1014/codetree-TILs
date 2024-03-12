@@ -12,6 +12,7 @@ for c in text:
 for c in text:
     if dic[c] == 1:
         answer = c
+        break
 
 if answer == "":
     answer = "None"
