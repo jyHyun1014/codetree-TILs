@@ -1,5 +1,9 @@
 s = input()
 n = int(input())
 
-for i in range(-1, -n-1, -1):
-    print(s[i], end="")
+if len(s) >= n: 
+    for i in range(-1, -n-1, -1):
+        print(s[i], end="")
+else:
+    for i in s[-1, -1, -1]:
+        print(s[i], end="")
