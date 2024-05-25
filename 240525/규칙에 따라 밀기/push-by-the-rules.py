@@ -1,10 +1,8 @@
 a = input()
 q = input()
-cnt = 0
 for x in q:
     if x == 'L':
-        cnt += 1
+        a = a[1:] + a[0]
     else:
-        cnt -= 1
-
-print(a[cnt:] + a[:cnt])
+        a = a[-1] + a[:-1]
+print(a)
